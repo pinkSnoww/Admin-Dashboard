@@ -1,14 +1,13 @@
+
+import React from 'react';
 import Link from 'next/link';
-import "../styles/global.css"
-const HomePage = () => {
+
+const HomePage: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to My Next.js App</h1>
-      <button className="btn btn-blue">
-  Button
-</button>
-      <Link href="/settings">
-        Go to Settings
+     
+      <Link legacyBehavior href="/settings">
+        <a>Go to Settings</a>
       </Link>
     </div>
   );

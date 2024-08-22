@@ -1,16 +1,14 @@
-import { Menu } from '../components/Menu';
-import { withAuth } from '../components/WithAuth';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-interface SettingProps {}
+const SettingPage: React.FC = () => {
+  const router = useRouter();
 
-function Setting(props: SettingProps) {
-  return (
-    <div>
-      <Menu isSettingAllowed={true} />
-      <h1 className="text-2xl font-bold mb-4">Settings</h1>
-      {/* Add your settings content here */}
-    </div>
-  );
-}
+  useEffect(() => {
+    router.push('/');
+  }, [router]);
 
-export default withAuth(Setting, false);
+  return null;
+};
+
+export default SettingPage;

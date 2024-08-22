@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 const config = {
   mode: "jit",
   content: [
@@ -9,7 +10,7 @@ const config = {
   theme: {
     extend: {
       colors: {
-        // trueGray: colors.neutral,
+        trueGray: colors.neutral,
       },
     },
     fontFamily: {
