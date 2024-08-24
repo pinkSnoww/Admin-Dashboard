@@ -16,7 +16,7 @@ const fetchPosts = async (): Promise<Post[]> => {
   return response.json();
 };
 
-const ListPage: React.FC = () => {
+const list: React.FC = () => {
   const { data: posts, isLoading, error } = useQuery<Post[], Error>({
     queryKey: ['posts'],
     queryFn: fetchPosts,
@@ -41,4 +41,4 @@ const ListPage: React.FC = () => {
   );
 };
 
-export default ListPage;
+export default list;

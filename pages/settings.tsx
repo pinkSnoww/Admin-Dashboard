@@ -1,11 +1,12 @@
 import { useAuth } from '../contexts/AuthContext';
-// import { withAuth } from '../components/WithAuth';
+import { withAuth } from '../components/WithAuth';
 import DefaultLayout from "../components/Layouts/DefaultLayout";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 const Settings = () => {
   const { user } = useAuth();
   const router = useRouter();
+
   useEffect(() => {
     if (!user || !user.isSettingAllowed) {
       router.push('/'); // Redirect to home if user doesn't have access
@@ -229,4 +230,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default withAuth(Settings, true); 

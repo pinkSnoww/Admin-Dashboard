@@ -1,25 +1,24 @@
-
-import { useRouter } from 'next/router';
-import { ComponentType, useEffect } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useRouter } from "next/router";
+import { ComponentType, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 export function withAuth<P extends JSX.IntrinsicAttributes>(
   WrappedComponent: ComponentType<P>,
-  requiresAccess: boolean = false
+  requireAdmin: boolean = false
 ) {
   return function WithAuthComponent(props: P) {
     const router = useRouter();
-    const { isAuthenticated, hasAccess } = useAuth();
+    const { isAuthenticated, user } = useAuth();
 
     useEffect(() => {
       if (!isAuthenticated) {
         router.push('/login');
-      } else if (requiresAccess && !hasAccess) {
+      } else if (requireAdmin && (!user || user.role !== 'admin')) {
         router.push('/unauthorized');
       }
-    }, [isAuthenticated, hasAccess, router, requiresAccess]);
+    }, [isAuthenticated, user, router, requireAdmin]);
 
-    if (!isAuthenticated || (requiresAccess && !hasAccess)) {
+    if (!isAuthenticated || (requireAdmin && (!user || user.role !== 'admin'))) {
       return null;
     }
 
