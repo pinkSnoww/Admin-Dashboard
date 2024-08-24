@@ -1,16 +1,19 @@
 // /pages/index.tsx
 import Link from 'next/link';
 import { Menu } from '../components/Menu';
-import  topNavigation   from "../components/Navigation";
-const HomePage = () => {
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import '../styles/global.css';
+import DefaultLayout from '../components/Layouts/DefaultLayout';
+import ListPage from './list';
+import { AppProps } from 'next/app';
+const queryClient = new QueryClient();
+const HomePage = ({ Component, pageProps }: AppProps) => {
   return (
-    <div>
-      <topNavigation />
-      <Menu isSettingAllowed={false} />
-      <Link legacyBehavior href="/list">
-        <a className="text-blue-500 hover:underline">Go to List</a>
-      </Link>
-    </div>
+    <DefaultLayout>
+     <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+    </DefaultLayout>
   );
 };
 

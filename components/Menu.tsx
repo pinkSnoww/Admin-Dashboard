@@ -1,4 +1,4 @@
-import { MenuItem } from './MenuItem';
+// import { MenuItem } from './MenuItem';
 
 interface MenuProps {
     isSettingAllowed: boolean;
@@ -8,12 +8,12 @@ interface MenuProps {
     return (
       <nav className="bg-white shadow-md">
         <ul className="flex">
-          <MenuItem href="/list" isAllowed={true}>
+          {/* <MenuItem href="/list" isAllowed={true}>
             List
           </MenuItem>
           <MenuItem href="/setting" isAllowed={isSettingAllowed}>
             Setting
-          </MenuItem>
+          </MenuItem> */}
         </ul>
       </nav>
     );

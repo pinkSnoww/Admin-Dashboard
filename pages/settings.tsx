@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-const SettingPage: React.FC = () => {
+const Settings: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -11,4 +11,4 @@ const SettingPage: React.FC = () => {
   return null;
 };
 
-export default SettingPage;
+export default Settings;
