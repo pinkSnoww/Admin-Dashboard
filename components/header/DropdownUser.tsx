@@ -2,10 +2,10 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ClickOutside from "../ClickOutside";
-
+import { useAuth } from "../../contexts/AuthContext";
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const { user, logout } = useAuth();
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
       <Link

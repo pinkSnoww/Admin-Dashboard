@@ -1,9 +1,13 @@
+// components/sidebar/SidebarItem.tsx
 import React from "react";
 import Link from "next/link";
 import SidebarDropdown from "./SidebarDropdown";
 import { usePathname } from "next/navigation";
+import { useAuth } from "../../hooks/useAuth"; // Import useAuth from utils/auth
 
 const SidebarItem = ({ item, pageName, setPageName }: any) => {
+  const { isAuthenticated } = useAuth(); // Use the AuthContext
+
   const handleClick = () => {
     const updatedPageName =
       pageName !== item.label.toLowerCase() ? item.label.toLowerCase() : "";

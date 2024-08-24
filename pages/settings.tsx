@@ -1,4 +1,4 @@
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../contexts/AuthContext';
 // import { withAuth } from '../components/WithAuth';
 import DefaultLayout from "../components/Layouts/DefaultLayout";
 import { useRouter } from 'next/router';
