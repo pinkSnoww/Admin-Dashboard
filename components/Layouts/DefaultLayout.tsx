@@ -3,11 +3,11 @@ import React, { useState, ReactNode } from "react";
 import Sidebar from "../sidebar";
 import Header from "../header";
 
-export default function DefaultLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface DefaultLayoutProps {
+  children: ReactNode;
+}
+
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
@@ -36,4 +36,6 @@ export default function DefaultLayout({
       {/* <!-- ===== Page Wrapper End ===== --> */}
     </>
   );
-}
+};
+
+export default DefaultLayout;

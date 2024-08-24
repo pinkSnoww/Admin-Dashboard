@@ -1,20 +1,25 @@
+
 import { useRouter } from 'next/router';
 import { ComponentType, useEffect } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 export function withAuth<P extends JSX.IntrinsicAttributes>(
   WrappedComponent: ComponentType<P>,
-  isAllowed: boolean
+  requiresAccess: boolean = false
 ) {
   return function WithAuthComponent(props: P) {
     const router = useRouter();
+    const { isAuthenticated, hasAccess } = useAuth();
 
     useEffect(() => {
-      if (!isAllowed) {
-        router.push('/');
+      if (!isAuthenticated) {
+        router.push('/login');
+      } else if (requiresAccess && !hasAccess) {
+        router.push('/unauthorized');
       }
-    }, [isAllowed, router]);
+    }, [isAuthenticated, hasAccess, router, requiresAccess]);
 
-    if (!isAllowed) {
+    if (!isAuthenticated || (requiresAccess && !hasAccess)) {
       return null;
     }
 
