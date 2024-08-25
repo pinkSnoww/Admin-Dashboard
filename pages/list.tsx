@@ -1,6 +1,5 @@
-// /pages/list.tsx
+
 import { useQuery } from '@tanstack/react-query';
-import { Menu } from '../components/Menu';
 
 interface Post {
   id: number;
@@ -27,7 +26,7 @@ const list: React.FC = () => {
 
   return (
     <div>
-      <Menu isSettingAllowed={false} />
+{/* <Menu isSettingAllowed={false} /> */}
       <h1 className="text-2xl font-bold mb-4">Posts List</h1>
       <ul>
         {posts?.map((post) => (

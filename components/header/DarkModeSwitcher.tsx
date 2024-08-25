@@ -1,4 +1,3 @@
-// import useColorMode from "@/hooks/useColorMode";
 
 import { useState } from "react";
 

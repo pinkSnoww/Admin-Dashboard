@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import SidebarItem from "./SidebarItem";
@@ -11,41 +10,41 @@ interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
 }
-const { isAdmin } = useAuth();
-const menuGroups = [
-  {
-    name: "MENU",
-    menuItems: [
-      {
-        label: "List",
-        route: "/list",
-       
-      },
-      ...(isAdmin
-        ? [
-            {
-              label: "Settings",
-              route: "/settings",
-              requiresAccess: true,
-            },
-          ]
-        : []),
-    ],
-  },
-];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  
+  const { user } = useAuth();
   const pathname = usePathname();
   const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+
+  const menuGroups = [
+    {
+      name: "MENU",
+      menuItems: [
+        {
+          label: "LogIn",
+          route: "/login",
+        },
+        {
+          label: "List",
+          route: "/list",
+        },
+     
+              {
+                label: "Settings",
+                route: "/settings",
+                requiresAccess: true,
+              },
+          
+      ],
+    },
+  ];
 
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
-        className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0"
+        className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear bg-purple-900 lg:translate-x-0"
         }`}
       >
-    
         <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
           <nav className="mt-5 px-4 py-4 lg:mt-9 lg:px-6">
             {menuGroups.map((group, groupIndex) => (

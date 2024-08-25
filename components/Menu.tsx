@@ -1,13 +1,9 @@
+
 import { useAuth } from '../contexts/AuthContext';
 import Link from 'next/link';
 
-
-interface MenuProps {
-    isSettingAllowed: boolean;
-  }
-  
-  export const Menu: React.FC<MenuProps> = ({ isSettingAllowed }) => {
-    const { user } = useAuth();
+export const Menu = () => {
+  const { user } = useAuth();
 
   return (
     <nav className="bg-white shadow-md">
@@ -23,6 +19,4 @@ interface MenuProps {
       </ul>
     </nav>
   );
-  };
-
- 
+};

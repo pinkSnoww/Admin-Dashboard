@@ -1,6 +1,6 @@
 import { useAuth } from '../contexts/AuthContext';
 import { withAuth } from '../components/WithAuth';
-import DefaultLayout from "../components/Layouts/DefaultLayout";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 const Settings = () => {
@@ -9,12 +9,12 @@ const Settings = () => {
 
   useEffect(() => {
     if (!user || !user.isSettingAllowed) {
-      router.push('/'); // Redirect to home if user doesn't have access
+      router.push('/list'); 
     }
   }, [router, user]);
 
   if (!user || !user.isSettingAllowed) {
-    return null; // Don't render anything if user doesn't have access
+    return null; 
   }
   return (
     <DefaultLayout>
@@ -70,8 +70,8 @@ const Settings = () => {
                           type="text"
                           name="fullName"
                           id="fullName"
-                          placeholder="Devid Jhon"
-                          defaultValue="Devid Jhon"
+                          placeholder="Name"
+                         
                         />
                       </div>
                     </div>
@@ -88,8 +88,8 @@ const Settings = () => {
                         type="text"
                         name="phoneNumber"
                         id="phoneNumber"
-                        placeholder="+990 3343 7865"
-                        defaultValue="+990 3343 7865"
+                        placeholder="12345678"
+                        
                       />
                     </div>
                   </div>
@@ -132,8 +132,7 @@ const Settings = () => {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="devidjond45@gmail.com"
-                        defaultValue="devidjond45@gmail.com"
+                        placeholder="shivaq1994@gmail.com"
                       />
                     </div>
                   </div>
@@ -150,8 +149,8 @@ const Settings = () => {
                       type="text"
                       name="Username"
                       id="Username"
-                      placeholder="devidjhon24"
-                      defaultValue="devidjhon24"
+                      placeholder="Username"
+                      defaultValue="Username"
                     />
                   </div>
 

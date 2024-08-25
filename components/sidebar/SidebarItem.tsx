@@ -1,4 +1,3 @@
-// components/sidebar/SidebarItem.tsx
 import React from "react";
 import Link from "next/link";
 import SidebarDropdown from "./SidebarDropdown";

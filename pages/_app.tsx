@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import '../styles/global.css';
-import DefaultLayout from '../components/Layouts/DefaultLayout';
+import DefaultLayout from '../components/layouts/defaultLayout';
 import { AppProps } from 'next/app';
 import { AuthProvider } from '../contexts/AuthContext';
 const queryClient = new QueryClient();
